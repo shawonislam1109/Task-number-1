@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Navbar = () => {
+    const { user, LogOUt } = useContext(AuthContext);
     const itemMenu = <React.Fragment>
         <li><p>Add Task</p></li>
         <li><p>My Task </p></li>
         <li><p>Complete Task</p></li>
     </React.Fragment>
+
+    const logingOUt = () => {
+        LogOUt()
+            .then(result => { })
+            .catch(error => console.log(error))
+    }
     return (
         <div>
             <div className="navbar md:w-9/12 mx-auto">
@@ -19,7 +27,7 @@ const Navbar = () => {
                             {itemMenu}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -27,7 +35,28 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                    {
+                        user?.uid ?
+
+                            <>
+                                <div className='flex justify-around items-center'>
+                                    <Link to='/login'><button onClick={logingOUt} className=' btm-nav-xs md:btm-nav-sm btn btn-active btn-error'>Log Out</button></Link>
+                                    <div className="avatar">
+                                        <div className="w-12 md:w-16 rounded-full ml-2">
+                                            <img src="https://placeimg.com/192/192/people" alt='' />
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                            :
+                            <>
+                                <div className='flex justify-around items-center'>
+                                    <Link to='/login'><button className=' btn-nav-xs md:btm-nav-sm btn btn-active btn-error'>Log In</button></Link>
+                                    <Link to='/signup'><button className='btn-nav-xs md:btm-nav-sm btn btn-active btn-error md:ml-3 ml-2'>Sign Up</button></Link>
+                                </div>
+                            </>
+                    }
+
                 </div>
             </div>
         </div>
