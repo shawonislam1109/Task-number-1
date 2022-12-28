@@ -6,7 +6,7 @@ const Navbar = () => {
     const { user, LogOUt } = useContext(AuthContext);
     const itemMenu = <React.Fragment>
         <li><Link to='/'>Add Task</Link></li>
-        <li><p>My Task </p></li>
+        <li><Link to='/myTask'>My Task </Link></li>
         <li><p>Complete Task</p></li>
     </React.Fragment>
 
@@ -27,7 +27,7 @@ const Navbar = () => {
                             {itemMenu}
                         </ul>
                     </div>
-                    <Link className="btn btn-ghost normal-case text-xl font-bold"> Daily <span className='text-violet-500 ml-2'> Task</span></Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-xl font-bold"> Daily <span className='text-violet-500 ml-2'> Task</span></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
