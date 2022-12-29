@@ -7,6 +7,7 @@ import SignUp from "../Shared/signUp/SignUp";
 import AddTask from "../Compoenter/AddTask/AddTask";
 import Mytask from "../Compoenter/MyTask/Mytask";
 import SingleDetails from "../Compoenter/MyTask/SingleDetails";
+import CompleteTask from "../Compoenter/CompleteTask/CompleteTask";
 
 export const route = createBrowserRouter([
     {
@@ -24,7 +25,11 @@ export const route = createBrowserRouter([
             {
                 path: '/Task/:id',
                 element: <SingleDetails />,
-                loader: ({ params }) => fetch(`http://localhost:5000/userTask/${params.id}`)
+                loader: ({ params }) => fetch(`https://task-number-1-server.vercel.app/userTask/${params.id}`)
+            },
+            {
+                path: '/completeTask',
+                element: <CompleteTask />
             },
             {
                 path: '/login',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const SingleDetails = () => {
     const SingleDetails = useLoaderData();
@@ -11,7 +11,7 @@ const SingleDetails = () => {
                 <h2 className="card-title text-xl font-bold">{date}</h2>
                 <p className='text-xl md:text-2xl  md:w-9/12'>{details}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Learn now!</button>
+                    <Link to='/'>  <button className="btn btn-primary text-white font-serif">Added Task</button></Link>
                 </div>
             </div>
         </div>

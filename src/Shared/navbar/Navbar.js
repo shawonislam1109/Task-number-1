@@ -7,7 +7,7 @@ const Navbar = () => {
     const itemMenu = <React.Fragment>
         <li><Link to='/'>Add Task</Link></li>
         <li><Link to='/myTask'>My Task </Link></li>
-        <li><p>Complete Task</p></li>
+        <li><Link to='/completeTask'>Complete Task</Link></li>
     </React.Fragment>
 
     const logingOUt = () => {

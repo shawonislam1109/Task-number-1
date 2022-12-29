@@ -1,16 +1,26 @@
 import React from 'react';
+import 'sweetalert2/src/sweetalert2.scss'
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 const DeleteModal = ({ stateDelate, setStateDelate, refetch }) => {
 
 
+    const deleteSwal = () => {
+        Swal.fire(
+            'Successfully Deleted Your Task',
+            'You clicked the button!',
+            'success'
+        )
+    }
     const TaskDelete = (id) => {
-        fetch(`http://localhost:5000/userTask/${id}`, {
+        fetch(`https://task-number-1-server.vercel.app/userTask/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 refetch();
+                deleteSwal();
             })
     }
     return (

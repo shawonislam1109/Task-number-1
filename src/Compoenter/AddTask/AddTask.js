@@ -7,6 +7,8 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 const AddTask = () => {
     const imgbbkey = process.env.REACT_APP_imgbb_apikey;
     const { user } = useContext(AuthContext)
+
+
     const formData = new FormData();
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [file, setFile] = useState('');
@@ -22,26 +24,8 @@ const AddTask = () => {
     const addTaskSubmit = (data) => {
         setFile(data.image[0].type)
 
-        const TaskUser = {
-            user: user.email,
-            image: file,
-            details: data.Details,
-            date: data.Date,
-        }
 
-        fetch(`http://localhost:5000/task`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(TaskUser)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                sweetAlart();
-                reset();
-            })
+
 
 
         formData.append('image', data.image[0]);
@@ -56,6 +40,29 @@ const AddTask = () => {
             .catch((error) => {
                 console.error('Error:', error);
             });
+
+
+        const TaskUser = {
+            user: user.email,
+            image: file,
+            details: data.Details,
+            date: data.Date,
+        }
+        console.log(TaskUser)
+
+        fetch(`https://task-number-1-server.vercel.app/task`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(TaskUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                sweetAlart();
+                reset();
+            })
 
     }
     return (
