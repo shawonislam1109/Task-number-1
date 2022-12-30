@@ -25,7 +25,7 @@ export const route = createBrowserRouter([
             {
                 path: '/Task/:id',
                 element: <SingleDetails />,
-                loader: ({ params }) => fetch(`https://task-number-1-server.vercel.app/userTask/${params.id}`)
+                loader: ({ params }) => fetch(`https://programing-hero-task-1.vercel.app/userTask/${params.id}`)
             },
             {
                 path: '/completeTask',

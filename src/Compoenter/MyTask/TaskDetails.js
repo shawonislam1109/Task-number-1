@@ -31,7 +31,7 @@ const TaskDetails = ({ refetch, data }) => {
             email: user.email,
         }
 
-        fetch(`https://task-number-1-server.vercel.app/complete`, {
+        fetch(`https://programing-hero-task-1.vercel.app/complete`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -44,7 +44,7 @@ const TaskDetails = ({ refetch, data }) => {
                 sweetAlart()
             })
 
-        fetch(`https://task-number-1-server.vercel.app/completeTask/${id}`, {
+        fetch(`https://programing-hero-task-1.vercel.app/completeTask/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

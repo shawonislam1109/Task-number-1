@@ -48,7 +48,7 @@ const UpdateModal = ({ update, refetch }) => {
         console.log(UpdateTask)
         console.log(file)
 
-        fetch(`https://task-number-1-server.vercel.app/UpdateTask/${update._id}`, {
+        fetch(`https://programing-hero-task-1.vercel.app/UpdateTask/${update._id}`, {
             method: 'PUT',
             headers: {
                 'Content-type': 'application/json'

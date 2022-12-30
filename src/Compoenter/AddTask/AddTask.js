@@ -15,7 +15,7 @@ const AddTask = () => {
 
     const sweetAlart = () => {
         Swal.fire(
-            'Good Job Task Added',
+            'Good Job your Data added',
             'You clicked the button!',
             'success'
         )
@@ -50,7 +50,7 @@ const AddTask = () => {
         }
         console.log(TaskUser)
 
-        fetch(`https://task-number-1-server.vercel.app/task`, {
+        fetch(`https://programing-hero-task-1.vercel.app/task`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
